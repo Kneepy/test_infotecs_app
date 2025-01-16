@@ -7,7 +7,7 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 To start a local development server, run:
 
 ```bash
-git clone https://github.com/Kneepy/test_infotex_app.git
+git clone https://github.com/Kneepy/test_infotecs_app.git
 npm i
 npm run start
 ```
