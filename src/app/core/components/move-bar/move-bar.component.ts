@@ -1,25 +1,18 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, Output} from '@angular/core';
 import {MenuItem, MenuItemCommandEvent} from 'primeng/api';
-import {Menu, MenuItemContent} from 'primeng/menu';
-import {Button, ButtonDirective} from 'primeng/button';
+import {Button} from 'primeng/button';
 import {Panel} from 'primeng/panel';
 import {PanelMenu} from 'primeng/panelmenu';
-import {NgForOf, NgStyle} from '@angular/common';
 import {Fluid} from 'primeng/fluid';
 import {Pages} from '../../constants/pages.constants';
 
 @Component({
     selector: 'app-move-bar',
     imports: [
-        Menu,
         Button,
         Panel,
         PanelMenu,
-        MenuItemContent,
-        ButtonDirective,
-        NgForOf,
         Fluid,
-        NgStyle
     ],
     templateUrl: './move-bar.component.html',
     styleUrl: './move-bar.component.scss',

@@ -36,8 +36,8 @@
                     </div>
                     <ng-template #owner>
                         <div class="user">
-                            <p-avatar [label]="currentUser.email?.[0] ?? ''" size="large" />
-                            <div class="email">{{ currentUser?.email }}</div>
+                            <p-avatar [label]="currentUser.email[0]" size="large" />
+                            <div class="email">{{ currentUser.email }}</div>
                         </div>
                     </ng-template>
                     <p-divider />

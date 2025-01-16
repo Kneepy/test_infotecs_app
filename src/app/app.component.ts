@@ -1,7 +1,6 @@
 import {Component, inject, OnInit} from "@angular/core";
 import { RouterOutlet } from "@angular/router";
 import { Title } from "@angular/platform-browser";
-import { HeaderComponent } from './core/components/header/header.component';
 
 @Component({
     selector: "app-root",
@@ -10,7 +9,6 @@ import { HeaderComponent } from './core/components/header/header.component';
     standalone: true,
     imports: [
         RouterOutlet,
-        HeaderComponent
     ],
 })
 export class AppComponent implements OnInit {
