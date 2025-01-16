@@ -1,0 +1,18 @@
+<div *ngIf="message" class="message">
+    <p-confirm-dialog />
+    <div (click)="openMessage()" class="container">
+        <div class="user">
+            <p-avatar [label]="(!my ? message.from.email[0] : message.to.email[0]).toUpperCase()" size="normal" />
+
+            <div class="email">{{ !my ? message.from.email : message.to.email }}</div>
+        </div>
+        <div class="date">
+            {{ message.createdAt }}
+        </div>
+        <div class="text">
+            {{ message.message }}
+        </div>
+        <p-button (click)="deleteMessage($event)" icon="pi pi-trash" severity="danger" text />
+    </div>
+    <p-divider/>
+</div>

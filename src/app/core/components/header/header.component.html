@@ -1,0 +1,15 @@
+<p-fluid>
+    <header>
+        <div class="container">
+            <div class="user">
+                <p-avatar
+                    size="large"
+                    shape="circle"
+                    [label]="currentUser?.email?.[0]?.toUpperCase()"
+                />
+                <div class="name">{{ currentUser?.email }}</div>
+            </div>
+            <p-button (click)="logout()" label="Выйти" icon="pi pi-sign-out" iconPos="left" variant="outlined" severity="contrast" size="small" />
+        </div>
+    </header>
+</p-fluid>

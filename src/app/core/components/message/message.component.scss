@@ -1,0 +1,39 @@
+.message {
+    display: flex;
+    flex-direction: column;
+    justify-content: left !important;
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        cursor: pointer;
+        border-radius: 5px;
+        &:hover {
+            background-color: var(--p-panelmenu-item-focus-background);
+        }
+        .user {
+            display: flex;
+            align-items: center;
+            flex: .7;
+            .email {
+                margin-left: 10px;
+            }
+        }
+        .date {
+            margin: 0 20px;
+            flex: 0;
+            white-space: nowrap;
+        }
+        .text {
+            overflow: hidden;
+            display: block;
+            text-overflow: ellipsis;
+            flex: 1;
+            white-space: nowrap;
+            text-align: left;
+            max-width: 600px;
+            margin-right: 20px;
+        }
+    }
+}

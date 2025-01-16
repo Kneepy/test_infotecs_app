@@ -1,0 +1,27 @@
+header {
+    border-bottom: 1px solid var(--p-primary-800);
+    backdrop-filter: blur(16px);
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    .container {
+        margin: 0 auto;
+        width: 1000px;
+        padding: 10px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .user {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: fit-content;
+
+            .name {
+                margin-left: 10px;
+                font-weight: bold;
+                font-size: 16px;
+            }
+        }
+    }
+}

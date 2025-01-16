@@ -1,0 +1,85 @@
+<main>
+    <app-header />
+    <p-toast life="1500" position="bottom-right" />
+    <div class="container">
+        <app-move-bar (changePage)="changePage($event)" (create)="isNewMessage = true" />
+        <p-fluid>
+            <p-fieldset
+                [legend]="currentChapter === Pages.INCOMING ? 'Входящие сообщения' : (currentChapter === Pages.OUTGOING ? 'Отправленные' : 'Черновики')"
+            >
+                <div class="messages">
+                    <ng-template #empty>
+                        <div class="no-messages">
+                            Нет сообщений
+                        </div>
+                    </ng-template>
+                    <p-data-view *ngIf="messages.length !== 0; else empty" [value]="messages" [paginator]="true" [rows]="5">
+                        <ng-template #list let-messages>
+                            <app-message
+                                (open)="openMessage(message)"
+                                (delete)="deleteMessage(message)"
+                                *ngFor="let message of messages"
+                                [message]="message"
+                                [my]="currentChapter !== Pages.INCOMING"
+                            />
+                        </ng-template>
+                    </p-data-view>
+                </div>
+            </p-fieldset>
+        </p-fluid>
+        <div class="view-message">
+            <p-drawer [style]="{ width: '500px', fontSize: '20px' }" header="Сообщение от:" [(visible)]="isViewMessage" position="right">
+                <ng-template #content>
+                    <div *ngIf="currentUser.email !== currentMessage?.from?.email; else owner" class="user">
+                        <p-avatar [label]="currentMessage?.from?.email?.[0] ?? ''" size="large" />
+                        <div class="email">{{ currentMessage?.from?.email }}</div>
+                    </div>
+                    <ng-template #owner>
+                        <div class="user">
+                            <p-avatar [label]="currentUser.email?.[0] ?? ''" size="large" />
+                            <div class="email">{{ currentUser?.email }}</div>
+                        </div>
+                    </ng-template>
+                    <p-divider />
+                    <div [innerHTML]="currentMessage?.message" class="message"></div>
+                </ng-template>
+                <ng-template #footer>
+                    <p-fluid>
+                        <div class="buttons">
+                            <button (click)="replyMessage()" pButton severity="contrast" size="large">Ответить</button>
+                            <button (click)="isViewMessage = false" pButton outlined severity="danger" size="large">Закрыть</button>
+                        </div>
+                    </p-fluid>
+                </ng-template>
+            </p-drawer>
+        </div>
+        <div class="new-message">
+            <p-drawer [style]="{ width: '500px' }" header="Новое сообщение" [(visible)]="isNewMessage" position="right">
+                <ng-template #content>
+                    <p-fluid>
+                        <p-floatlabel variant="in">
+                            <input pInputText id="email" [(ngModel)]="draftMessage.to.email" #email="ngModel" name="email" autocomplete="off" />
+                            <label for="email">Email</label>
+                        </p-floatlabel>
+                        <p-divider />
+                        <p-editor [(ngModel)]="draftMessage.message" [style]="{ height: '320px' }"></p-editor>
+                    </p-fluid>
+                </ng-template>
+                <ng-template #footer>
+                    <p-fluid>
+                        <div class="buttons">
+                            <button (click)="saveDraft()" pButton severity="contrast" outlined size="large">Сохранить черновик</button>
+                            <button
+                                (click)="sendMessage()"
+                                [disabled]="!draftMessage.to.email.length"
+                                pButton
+                                severity="contrast"
+                                size="large"
+                            >Отправить</button>
+                        </div>
+                    </p-fluid>
+                </ng-template>
+            </p-drawer>
+        </div>
+    </div>
+</main>

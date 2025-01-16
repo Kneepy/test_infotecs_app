@@ -1,0 +1,14 @@
+<main>
+    <p-panel>
+        <ng-template #header>
+            <p-fluid>
+                <div class="pool">
+                    <p-button size="large" (click)="writeMessage()" label="Написать" icon="pi pi-pencil" severity="contrast" />
+                    <div class="menu">
+                        <p-panelmenu [model]="moves"></p-panelmenu>
+                    </div>
+                </div>
+            </p-fluid>
+        </ng-template>
+    </p-panel>
+</main>

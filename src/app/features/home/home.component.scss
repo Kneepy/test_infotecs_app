@@ -1,0 +1,41 @@
+main {
+    width: 100%;
+    .container {
+        display: flex;
+        padding: 100px;
+        width: 100%;
+        position: relative;
+        .messages {
+            margin-top: 25px;
+            display: flex;
+            flex-direction: column;
+            .no-messages {
+                flex: 1;
+                align-items: center;
+                justify-content: center;
+                display: flex;
+                color: var(--p-primary-500);
+            }
+        }
+    }
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    .email {
+        margin-left: 20px;
+    }
+}
+.message {
+    padding: 20px;
+}
+.buttons {
+    display: flex;
+    flex: 1;
+    button {
+        margin: 0 10px;
+        font-weight: bold;
+    }
+}

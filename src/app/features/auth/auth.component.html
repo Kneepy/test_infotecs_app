@@ -1,0 +1,41 @@
+<main>
+    <p-card class="auth_box">
+        <div class="title">Авторизация</div>
+
+        <form>
+            <p-fluid>
+                <div class="inputs">
+                    <p-floatlabel variant="in">
+                        <input
+                            pSize="small"
+                            pInputText
+                            id="email"
+                            [formControl]="emailFormControl"
+                            [ngClass]="passwordFormControl.invalid ? ['ng-dirty', 'ng-invalid'] : ''"
+                            autocomplete="off"
+                        />
+                        <label for="email">Email</label>
+                    </p-floatlabel>
+                    <p-floatlabel variant="in" [style]="{ marginTop: '8px' }">
+                        <p-password
+                            size="small"
+                            id="password"
+                            [formControl]="passwordFormControl"
+                            [ngClass]="passwordFormControl.invalid ? ['ng-dirty', 'ng-invalid'] : ''"
+                            [toggleMask]="true"
+                            [feedback]="false"
+                            autocomplete="off"
+                        />
+                        <label for="password">Password</label>
+                    </p-floatlabel>
+                </div>
+                <p-button
+                    [disabled]="passwordFormControl.invalid || emailFormControl.invalid || !emailFormControl.getRawValue()?.length || !passwordFormControl.getRawValue()?.length"
+                    (click)="auth()"
+                    label="Зарегестрироваться"
+                    severity="secondary"
+                />
+            </p-fluid>
+        </form>
+    </p-card>
+</main>

@@ -1,0 +1,23 @@
+:host::ng-deep {
+    .p-panel-content {
+        padding: 0;
+        margin: 0;
+    }
+    .p-panel-header {
+        padding: 10px;
+    }
+}
+
+main {
+    width: 300px;
+    margin-right: 20px;
+    position: static;
+    .pool {
+        margin-top: 20px;
+
+        .menu {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    }
+}
